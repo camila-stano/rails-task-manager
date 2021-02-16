@@ -1,0 +1,35 @@
+<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+  <div class="card-header font-size: 3px">My tasks:</div>
+  <div class="card-body">
+    <% @tasks.each do |task| %>
+      <div class="container">
+        <div class="row">
+          <div class="col-2 text-right ">
+          <% if task.completed == true %>
+            <input type="checkbox" checked disabled>
+          <% else %>
+            <input type="checkbox" unchecked disabled>
+          <% end %>
+          </div>
+          <div class="col-10 text-left ">
+            <ul>
+              <li style="list-style: none;" > <%= link_to task.title, task_path(task) %>  <%= link_to "🗑️", delete_path(task), method: :delete, data: { confirm: "Are you sure?" } %></li>
+            </ul>
+          </div>
+        </div>  
+      </div>
+    <% end %>
+      <p class="p-3"><%= link_to "Add a new task", new_task_path %></p>
+  </div>
+</div>
+
+
+
+<%# <%= link_to "criar taske", new_task_path %>
+
+<%# <% @tasks.each do |task| %> 
+  <%# <ul> %>
+    <%# <li><%= task.name %> 
+    <%# <%= link_to "ver", task_path(task) | <%= link_to "edit", edit_task_path(task) %> 
+     <%# <%= link_to "deletar", delete_path(task), method: :delete, data: { confirm: "Are you sure?" } </li> %>
+  <%# </ul> %>

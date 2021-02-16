@@ -1,0 +1,39 @@
+<div class="card text-white bg-info mb-3" style="max-width: 25rem;">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-7 text-left ">
+        <div class="card-header"><%= @task.title %></div>
+      </div>
+      <div class="col-5 text-right">
+        <p class="btn btn-secondary btn-sm mt-3 "><%= link_to "Create a new task", edit_task_path %></p>
+      </div>
+    </div>  
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @task.details %></h5>
+    <div class="container">
+      <div class="row">
+        <div class="col-2 text-right ">
+        <% if @task.completed == true %>
+          <input type="checkbox" checked disabled>
+        <% else %>
+          <input type="checkbox" unchecked disabled>
+        <% end %>
+        </div>
+        <div class="col-10 text-left ">
+          <p class="card-text">This task is completed </p>
+        </div>
+    </div>  
+  </div>
+  <p class="p-3"><%= link_to "Back to list", tasks_path %></p>
+</div>
+
+
+
+<%# <%= link_to "editar", edit_task_path(@task) %>
+<%# <%= link_to "voltar", tasks_path %>
+
+
+
+<%# <%= link_to "Deletar", delete_path(@task), method: :delete, data: { confirm: "Are you sure?" } %> 
